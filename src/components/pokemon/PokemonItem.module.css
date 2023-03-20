@@ -1,0 +1,46 @@
+.item{
+    border:3px solid black;
+    border-radius: 20px;
+    background-color: lightblue;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.item:hover{
+    transform: scale(1.05);
+}
+
+.container{
+    width:100%;
+    text-align: center;
+    border-bottom: 2px solid black;
+    border-radius: 15px;
+    background-color: black;
+}
+
+
+.container img{
+ width:70%;   
+ object-fit: cover;
+}
+
+.info{
+    height:55%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item h1{
+    color: black;
+}
+
+.item p{
+    color:black;
+    font-weight: bold;
+}

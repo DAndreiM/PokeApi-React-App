@@ -1,0 +1,18 @@
+.button{
+    display:block;
+    margin:auto;
+    height:2rem;
+    width:20%;
+    max-width: 122px;
+    min-width: 90px;
+    color:darkcyan;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: black;
+    border: none;
+}
+
+.button:hover{
+    color:black;
+    background-color: darkcyan;
+}

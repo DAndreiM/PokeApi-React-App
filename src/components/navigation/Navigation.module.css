@@ -1,0 +1,12 @@
+.navigation {
+    background-color: rgba(0,0,0,0.9);
+}
+
+@media(max-width: 35rem){
+    .navigation{
+        position: fixed;
+        width:100%;
+        top:0;
+        z-index: 1;
+    }
+}

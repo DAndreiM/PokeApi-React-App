@@ -1,0 +1,10 @@
+.loadingContent{
+    text-align: center;
+    color:darkcyan;
+}
+
+@media(max-width:35rem){
+    main{
+        margin-top: 5rem;
+    }
+}

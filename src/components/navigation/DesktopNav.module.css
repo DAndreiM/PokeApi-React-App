@@ -1,0 +1,19 @@
+.navigation ul{
+    margin:0 auto;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height:3rem;
+    max-width: 100rem;
+}
+
+.navigation li {
+    margin:0;
+    font-weight: bold;
+}
+
+@media(max-width: 35rem){
+    .navigation{
+        display:none;
+    }
+}

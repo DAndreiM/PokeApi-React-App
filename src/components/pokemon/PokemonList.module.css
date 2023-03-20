@@ -1,0 +1,9 @@
+.pokeList{
+    display:grid;
+    grid: auto-flow 25rem / repeat(auto-fill, minmax(15rem, 20rem));
+    gap: 1rem;
+    margin:1rem;
+    padding:0;
+    list-style: none;
+    justify-content: center;
+}

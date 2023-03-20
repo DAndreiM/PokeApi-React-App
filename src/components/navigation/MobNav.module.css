@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.mobNav{
+    display:none;
+}
+
+.mobNavItems{
+    display: none;
+}
+
+@media(max-width:35rem){
+    .mobNav{
+        display:flex;
+        align-items: center;
+        justify-content: left;
+        border-bottom: 1px solid white;
+    }
+
+    .mobNav button{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin:0.5rem;
+        padding:0;
+        width:2.2rem;
+        height:2.2rem;
+        border:none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .mobNav span{
+        background-color: darkcyan;
+        width:100%;
+        height:0.31rem;
+    }
+
+    .mobNavItems{
+        display:block;
+        text-align: center;
+        padding:1rem;
+    }
+
+    .mobNavItems li{
+        margin:0.5rem;
+    }
+
+    .mobNavItems a{
+        font-family: 'Oswald', sans-serif;
+    }
+
+}
