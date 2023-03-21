@@ -26,8 +26,6 @@ const keys = [
   "=",
 ];
 
-const operators = ["+", "-", "*", "/", "="];
-
 const Calculator = () => {
   const [input, setInput] = useState("");
 
