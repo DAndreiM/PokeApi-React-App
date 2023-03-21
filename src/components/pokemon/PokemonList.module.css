@@ -7,3 +7,21 @@
     list-style: none;
     justify-content: center;
 }
+
+.sortElements{
+    margin:1rem;
+    text-align: center;
+}
+
+.sortElements select{
+    background-color: darkcyan;
+    color:black;
+    border:none;
+    outline: none;
+    font-weight: bold;
+    height:2rem;
+    width:10rem;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,27 @@
+.buttonstyle{
+    width:4rem;
+    height:4rem;
+    font-weight: bold;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonstyle:hover{
+    transform: scale(0.95);
+}
+
+.operator{
+    background-color: orange;
+    color:white;
+}
+
+.number{
+    background-color: darkslategrey;
+    color:white;
+}
+
+.special{
+    background-color: grey;
+    color:black;
+}

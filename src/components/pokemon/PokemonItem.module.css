@@ -8,6 +8,8 @@
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
 }
 
 .item:hover{
@@ -41,6 +43,19 @@
 }
 
 .item p{
+    color:black;
+    font-weight: bold;
+}
+
+.badge{
+    position:absolute;
+    background-color: yellow;
+    right:-3rem;
+    top:1rem;
+    width:50%;
+    height:2rem;
+    text-align: center;
+    transform: rotateZ(45deg);
     color:black;
     font-weight: bold;
 }

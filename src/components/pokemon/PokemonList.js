@@ -24,15 +24,14 @@ const PokemonList = ({ pokemons }) => {
 
   return (
     <>
-      <label>
-        Sort by:
+      <div className={classes.sortElements}>
         <select defaultValue={sorting} ref={selection} onChange={sortHandler}>
           <option value="none">None</option>
           <option value="descending">ID Descending</option>
           <option value="nascending">Name ascending</option>
           <option value="ndescending">Name descending</option>
         </select>
-      </label>
+      </div>
       <ul className={classes.pokeList}>
         {pokemons.map((item) => (
           <PokemonItem

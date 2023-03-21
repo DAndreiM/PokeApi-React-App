@@ -1,0 +1,35 @@
+.wrapper{
+    display:grid;
+    border: 2px solid black;
+    border-radius: 20px;
+    justify-content: center;
+    margin:5rem auto;
+    background-color: black;
+    max-width: 20rem;
+    min-width: 16rem;
+
+    grid-template-columns: repeat(4, minmax(1rem, 4rem));
+    grid-template-rows: repeat(6, minmax(1rem, 4rem));
+
+    grid-template-areas: "monitor monitor monitor monitor"
+                        "calc calc calc calc"
+                        "calc calc calc calc"
+                        "calc calc calc calc"
+                        "calc calc calc calc"
+                        "calc calc calc calc";
+    box-shadow: 10px 10px 10px 2px grey;
+    padding-bottom: 2rem;
+}
+
+.results{
+    grid-area: monitor;
+    color:white;
+    display:flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 2rem;
+}
+
+.numbers{
+    grid-area: calc;
+}

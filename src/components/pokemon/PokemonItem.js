@@ -13,6 +13,7 @@ const PokemonItem = (props) => {
 
   return (
     <li onClick={itemHandler} className={classes.item}>
+      <div className={classes.badge}>LIMITED</div>
       <div className={classes.container}>
         <img
           alt="pokemon logo"
