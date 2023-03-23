@@ -1,14 +1,16 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/root";
-import Home from "./pages/Home";
-import Pokemon from "./pages/Pokemon";
 import Calculator from "./pages/Calculator";
+import ErrorPage from "./pages/ErrorPage";
+import { lazy, Suspense } from "react";
+
+const Pokemon = lazy(() => import("./pages/Pokemon"));
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <Home />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -19,7 +21,13 @@ const Routes = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Pokemon />,
+            element: (
+              <Suspense
+                fallback={<p style={{ textAlign: "center" }}>Loading...</p>}
+              >
+                <Pokemon />
+              </Suspense>
+            ),
           },
           {
             path: ":pokemonID",

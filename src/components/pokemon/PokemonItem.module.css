@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    transition: all 0.3s ease-out;
+    transition: transform 0.3s ease-out;
     position: relative;
     overflow: hidden;
 }

@@ -1,0 +1,35 @@
+.footer{
+    width:100%;
+    background-color: black;
+    padding:1rem;
+}
+
+.footer ul{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer li{
+    margin:0 2rem;
+}
+
+.notAllowed{
+    color:grey;
+}
+
+.notAllowed:hover{
+    cursor: not-allowed;
+    border:none;
+    color:grey;
+}
+
+@media(max-width: 35rem){
+    .footer ul{
+        flex-direction: column;
+    }
+
+    .footer li{
+        margin:0.2rem;
+    }
+}

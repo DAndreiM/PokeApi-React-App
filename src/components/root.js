@@ -1,17 +1,20 @@
-import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 import Navigation from "./navigation/Navigation";
+import Footer from "./navigation/Footer";
 
 const Root = () => {
   return (
-    <Fragment>
+    <>
       <header>
         <Navigation />
       </header>
       <main>
         <Outlet />
       </main>
-    </Fragment>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 };
 
