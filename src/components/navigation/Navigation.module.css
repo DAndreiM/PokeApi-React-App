@@ -2,11 +2,19 @@
     background-color: rgba(0,0,0,0.9);
 }
 
+.borderb{
+    background-image: linear-gradient(to right,black 20%, darkcyan 70%);
+    height:0.25rem;
+}
+
 @media(max-width: 35rem){
     .navigation{
         position: fixed;
         width:100%;
         top:0;
         z-index: 1;
+    }
+    .borderb{
+        display: none;
     }
 }

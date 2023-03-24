@@ -8,7 +8,7 @@ const PokemonItem = (props) => {
   const name = firstLetterUpperCase + remainingWords;
 
   const itemHandler = () => {
-    navigate(`/pokemon/${props.id}`);
+    navigate(`/pokemon/${props.name}`);
   };
 
   return (

@@ -3,7 +3,7 @@ import CalculatorBody from "../components/calculator/CalculatorBody";
 
 const Calculator = () => {
   return (
-    <section>
+    <section className={classes.calculator}>
       <CalculatorBody />
     </section>
   );

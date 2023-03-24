@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Navigation from "./navigation/Navigation";
-import Footer from "./navigation/Footer";
 
 const Root = () => {
   return (
@@ -11,9 +10,6 @@ const Root = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 };

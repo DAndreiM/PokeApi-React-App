@@ -2,10 +2,11 @@
     display:grid;
     grid: auto-flow 25rem / repeat(auto-fill, minmax(15rem, 20rem));
     gap: 1rem;
-    margin:1rem;
-    padding:0;
+    margin:1rem auto;
+    padding:1rem;
     list-style: none;
     justify-content: center;
+    max-width: 1237px;
 }
 
 .sortElements{

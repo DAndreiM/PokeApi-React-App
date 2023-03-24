@@ -7,6 +7,7 @@ const Navigation = () => {
     <div className={classes.navigation}>
       <DesktopNav />
       <MobNav />
+      <div className={classes.borderb} />
     </div>
   );
 };

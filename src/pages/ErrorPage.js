@@ -1,6 +1,5 @@
 import classes from "./ErrorPage.module.css";
 import Navigation from "../components/navigation/Navigation";
-import Footer from "../components/navigation/Footer";
 
 const ErrorPage = () => {
   return (
@@ -12,9 +11,6 @@ const ErrorPage = () => {
           <p>Not found !</p>
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </>
   );
 };

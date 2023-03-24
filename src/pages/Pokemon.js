@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { itemsSliceAction, loadItems } from "../store/itemsSlice";
 import Button from "../ui/Button";
+import Footer from "../components/navigation/Footer";
 
 const Pokemon = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -65,6 +66,7 @@ const Pokemon = () => {
       <Button disabled={isLoading} onClick={loadMorePokemonsHandler}>
         {isLoading ? "Loading..." : "Load More"}
       </Button>
+      <Footer />
     </>
   );
 };
