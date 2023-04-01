@@ -28,6 +28,7 @@ header{
 
 main{
   grid-area: main;
+  margin-bottom: 4rem;
 }
 
 footer{
