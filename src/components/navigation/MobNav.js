@@ -18,8 +18,12 @@ const MobNav = () => {
           <span></span>
         </button>
       </div>
-
-      {showNav && <NavBody className={classes.mobNavItems} />}
+      {showNav && (
+        <NavBody
+          showTheNav={toggleNavHandler}
+          className={classes.mobNavItems}
+        />
+      )}
     </>
   );
 };

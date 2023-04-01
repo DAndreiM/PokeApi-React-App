@@ -35,7 +35,6 @@ const CalculatorBody = () => {
   }, [input]);
 
   const calculate = () => {
-    if (input.length === 0) return;
     setInput((prevValue) => {
       const result = evaluate(prevValue);
       const filteredResult = result.toString().includes(".")
@@ -74,6 +73,7 @@ const CalculatorBody = () => {
       );
 
     if (value === "=") {
+      if (input.length === 0) return;
       if (isOperator(input.toString().slice(-1))) return;
       return calculate();
     }

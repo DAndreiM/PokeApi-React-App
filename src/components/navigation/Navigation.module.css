@@ -1,5 +1,6 @@
 .navigation {
     background-color: rgba(0,0,0,0.9);
+    transition: transform 0.3s ease-out;
 }
 
 .borderb{

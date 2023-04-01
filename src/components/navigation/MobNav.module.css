@@ -28,6 +28,11 @@
         border:none;
         background-color: transparent;
         cursor: pointer;
+        transition: transform 0.15s ease-out;
+    }
+
+    .mobNav button:hover{
+        transform: scale(1.1);
     }
 
     .mobNav span{

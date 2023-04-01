@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import classes from "./NavBody.module.css";
 
-const NavBody = (props) => {
+const NavBody = ({ className, showTheNav }) => {
   return (
-    <nav className={props.className}>
+    <nav className={className}>
       <ul>
         <li>
           <NavLink
+            onClick={showTheNav}
             end
             className={({ isActive }) =>
               isActive ? classes.active : undefined
@@ -18,6 +19,7 @@ const NavBody = (props) => {
         </li>
         <li>
           <NavLink
+            onClick={showTheNav}
             className={({ isActive }) =>
               isActive ? classes.active : undefined
             }
