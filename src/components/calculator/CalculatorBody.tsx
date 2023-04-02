@@ -55,10 +55,10 @@ const CalculatorBody = () => {
     );
   };
 
-  const keyClickHandler = (value: any) => {
+  const keyClickHandler = (value: string) => {
     if (input.length === 0 && isOperator(value)) return;
 
-    if (input.slice(-1) === ")" && !isNaN(value)) return;
+    if (input.slice(-1) === ")" && !isNaN(parseInt(value))) return;
 
     if (value === "Clear") return setInput("");
 
@@ -83,7 +83,7 @@ const CalculatorBody = () => {
     if (isOperator(input.slice(-1)) && isOperator(value))
       setInput(input.slice(0, -1));
 
-    if (input.slice(-1) === "0" && !isNaN(value))
+    if (input.slice(-1) === "0" && !isNaN(parseInt(value)))
       setInput((prevValue) => prevValue.slice(0, -1));
 
     setInput((prevValue) => prevValue + value);
