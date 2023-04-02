@@ -9,7 +9,7 @@ const Footer = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link className={classes.notAllowed}>About Us</Link>
+          <Link to='' className={classes.notAllowed}>About Us</Link>
         </li>
       </ul>
     </div>

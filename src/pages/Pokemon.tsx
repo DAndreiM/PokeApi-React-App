@@ -1,16 +1,16 @@
 import classes from "./Pokemon.module.css";
 import PokemonList from "../components/pokemon/PokemonList";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { itemsSliceAction, loadItems } from "../store/itemsSlice";
 import Button from "../ui/Button";
+import { useAppDispatch, useAppSelector } from "../store/index";
 
 const Pokemon = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
-  const pokemonItem = useSelector((item) => item.itemsSlice.items);
-  const errorState = useSelector((item) => item.itemsSlice.errorState);
+  const dispatch = useAppDispatch();
+  const pokemonItem = useAppSelector((item) => item.itemsSlice.items);
+  const errorState = useAppSelector((item) => item.itemsSlice.errorState);
   const offset = pokemonItem.length;
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Pokemon = () => {
           })
         );
       }
-    } catch (error) {
+    } catch (error: any) {
       dispatch(itemsSliceAction.setErrorState(error.message));
       console.log(error);
     }

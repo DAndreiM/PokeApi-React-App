@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavBody from "./Navbody";
 
 const MobNav = () => {
-  const [showNav, setShowNav] = useState(false);
+  const [showNav, setShowNav] = useState<boolean>(false);
 
   const toggleNavHandler = () => {
     setShowNav((prevNav) => !prevNav);

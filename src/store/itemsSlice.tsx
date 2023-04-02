@@ -1,6 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {  PayloadAction, createSlice } from "@reduxjs/toolkit";
+import pokemonModel from "../models/pokemonModel";
+import { AppDispatch } from "./index";
 
-const initialState = {
+type initState = {
+  items: pokemonModel[];
+  errorState: string;
+  sortBy: string;
+}
+
+const initialState: initState = {
   items: [],
   errorState: "",
   sortBy: "",
@@ -10,13 +18,13 @@ const itemsSlice = createSlice({
   name: "itemsSlice",
   initialState: initialState,
   reducers: {
-    replaceItems(state, action) {
+    replaceItems(state, action: PayloadAction<pokemonModel[]>) {
       state.items = [...action.payload];
     },
-    addItem(state, action) {
+    addItem(state, action:PayloadAction<pokemonModel>) {
       state.items.push(action.payload);
     },
-    sortItem(state, action) {
+    sortItem(state) {
       if (state.sortBy === "none") {
         state.items.sort((a, b) => a.id - b.id);
       }
@@ -30,17 +38,17 @@ const itemsSlice = createSlice({
         state.items.sort((a, b) => (a.name > b.name ? -1 : 1));
       }
     },
-    setSortBy(state, action) {
+    setSortBy(state, action: PayloadAction<string>) {
       state.sortBy = action.payload;
     },
-    setErrorState(state, action) {
+    setErrorState(state, action: PayloadAction<string>) {
       state.errorState = action.payload;
     },
   },
 });
 
-export function loadItems(url) {
-  return async function (dispatch) {
+export function loadItems(url: string) {
+  return async function (dispatch: AppDispatch) {
     async function load() {
       const response = await fetch(url);
       if (!response.ok) throw new Error("There was an error loading data...");
@@ -53,14 +61,15 @@ export function loadItems(url) {
         pokemons.push({
           id: +item + 1,
           name: data.results[item].name,
-          url: data.results[item].url,
-        });
+          url: data.results[item].url
+        }
+        );
       }
       dispatch(itemsSlice.actions.replaceItems(pokemons));
     }
     try {
       await load();
-    } catch (error) {
+    } catch (error: any) {
       dispatch(itemsSlice.actions.setErrorState(error.message));
       console.log(error);
     }

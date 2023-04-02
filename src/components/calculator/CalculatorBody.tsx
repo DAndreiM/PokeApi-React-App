@@ -27,8 +27,8 @@ const keys = [
 ];
 
 const CalculatorBody = () => {
-  const [input, setInput] = useState("");
-  const [monitor, setMonitor] = useState("");
+  const [input, setInput] = useState<string>("");
+  const [monitor, setMonitor] = useState<string>("");
 
   useEffect(() => {
     setMonitor(input);
@@ -44,7 +44,7 @@ const CalculatorBody = () => {
     });
   };
 
-  const isOperator = (value) => {
+  const isOperator = (value: string) => {
     return (
       value === "+" ||
       value === "-" ||
@@ -55,7 +55,7 @@ const CalculatorBody = () => {
     );
   };
 
-  const keyClickHandler = (value) => {
+  const keyClickHandler = (value: any) => {
     if (input.length === 0 && isOperator(value)) return;
 
     if (input.slice(-1) === ")" && !isNaN(value)) return;

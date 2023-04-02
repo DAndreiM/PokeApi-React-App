@@ -2,15 +2,16 @@ import classes from "./PokemonList.module.css";
 import PokemonItem from "./PokemonItem";
 import { useEffect, useRef } from "react";
 import { itemsSliceAction } from "../../store/itemsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../store/index";
+import pokemonModel from "../../models/pokemonModel";
 
-const PokemonList = ({ pokemons }) => {
-  const selection = useRef();
+const PokemonList: React.FC<{pokemons: pokemonModel[]}> = ({ pokemons }) => {
+  const selection = useRef<HTMLSelectElement>(null);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const pokemonItems = useSelector((item) => item.itemsSlice.items);
-  const sorting = useSelector((item) => item.itemsSlice.sortBy);
+  const pokemonItems = useAppSelector((item) => item.itemsSlice.items);
+  const sorting = useAppSelector((item) => item.itemsSlice.sortBy);
 
   useEffect(() => {
     if (sorting) {
@@ -20,7 +21,7 @@ const PokemonList = ({ pokemons }) => {
   }, [dispatch, sorting, pokemonItems]);
 
   const sortHandler = () =>
-    dispatch(itemsSliceAction.setSortBy(selection.current.value));
+    dispatch(itemsSliceAction.setSortBy(selection.current!.value));
 
   return (
     <>

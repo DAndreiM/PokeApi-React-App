@@ -1,7 +1,15 @@
 import classes from "./PokemonDetails.module.css";
 import { Link } from "react-router-dom";
 
-const PokemonDetails = ({ pokemon }) => {
+type pkmon = {
+  name: string;
+  abilities: string[];
+  experience: number;
+  height: number;
+  weight: number;
+}
+
+const PokemonDetails: React.FC<{pokemon: pkmon}> = ({ pokemon }) => {
   return (
     <div className={classes.info}>
       <div className={classes.title}>

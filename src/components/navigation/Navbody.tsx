@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classes from "./NavBody.module.css";
 
-const NavBody = ({ className, showTheNav }) => {
+const NavBody: React.FC<{className: string, showTheNav?: () => void}> = ({ className, showTheNav }) => {
   return (
     <nav className={className}>
       <ul>
