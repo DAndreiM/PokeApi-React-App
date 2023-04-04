@@ -6,7 +6,7 @@ import Button from "../ui/Button";
 import { useAppDispatch, useAppSelector } from "../store/index";
 import { useGetPokemonSpeciesInfoQuery } from "../services/pokemon";
 
-const refetchInterval = 5000; //5000ms , 5 s
+const refetchInterval = 500990; //5000ms , 5 s
 
 const Pokemon = () => {
   const [Loading, setLoading] = useState<boolean>(false);
@@ -18,7 +18,7 @@ const Pokemon = () => {
   const errorState = useAppSelector((item) => item.itemsSlice.errorState);
   const offset = pokemonItem.length;
   console.log(data);
-  
+
   useEffect(() => {
     if (offset === 0) {
       setLoading(true);
