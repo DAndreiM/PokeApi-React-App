@@ -1,20 +1,14 @@
 import classes from "./PokemonDetails.module.css";
 import { Link } from "react-router-dom";
+import pokemonModel from "../../models/pokemonModel";
 
-type pkmon = {
-  name: string;
-  abilities: string[];
-  experience: number;
-  height: number;
-  weight: number;
-}
-
-const PokemonDetails: React.FC<{pokemon: pkmon}> = ({ pokemon }) => {
+const PokemonDetails: React.FC<{pokemon: pokemonModel}> = ({ pokemon }) => {
   return (
     <div className={classes.info}>
       <div className={classes.title}>
         <h1>{pokemon.name}</h1>
         <ul className={classes.abilities}>{pokemon.abilities}</ul>
+        <img src={pokemon.image} />
       </div>
       <div className={classes.stats}>
         <div>

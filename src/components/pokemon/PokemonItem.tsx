@@ -1,7 +1,8 @@
 import classes from "./PokemonItem.module.css";
 import { useNavigate } from "react-router";
+import pokemonModel from "../../models/pokemonModel";
 
-const PokemonItem: React.FC<{name: string, id:number, url: string}> = (props) => {
+const PokemonItem: React.FC<pokemonModel> = (props) => {
   const navigate = useNavigate();
   const firstLetterUpperCase = props.name.charAt(0).toUpperCase();
   const remainingWords = props.name.slice(1);

@@ -2,19 +2,11 @@ import { useLoaderData, Await, json, defer } from "react-router";
 import { Suspense } from "react";
 import PokemonDetails from "../components/pokemon/PokemonDetails";
 import { LoaderFunction } from 'react-router-dom';
+import pokemonModel from "../models/pokemonModel";
 
 export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<ReturnType<TLoaderFn>> extends Response | infer D
 	? D
 	: never;
-
-
-type PData = {
-  name: string;
-  height: number;
-  weight: number;
-  experience: number;
-  abilities: JSX.Element[];
-}
 
 const PokemonInfo = () => {
   const { data } = useLoaderData() as LoaderData<typeof loader>;
@@ -44,20 +36,23 @@ async function loadData(pokemonIdentifier: string) {
   }
 
   const data = await response.json();
+  console.log(data);
   let moves: JSX.Element[] = [];
 
   for (let i = 0; i < 3; i++) {
     moves.push(<li key={Math.random()*100}>{data.moves[i].move.name.toUpperCase()}</li>);
   }
 
-  const pokemonData: PData = {
+  const pokemonData: pokemonModel = {
+    id: data.id,
+    url: 'none',
     name: data.name.toUpperCase(),
     height: data.height,
     weight: data.weight,
     experience: data["base_experience"],
     abilities: [...moves],
+    image: data.sprites.front_shiny,
   };
-
   return pokemonData;
 }
 

@@ -54,14 +54,13 @@ export function loadItems(url: string) {
       if (!response.ok) throw new Error("There was an error loading data...");
 
       const data = await response.json();
-
       const pokemons = [];
 
       for (const item in data.results) {
         pokemons.push({
           id: +item + 1,
           name: data.results[item].name,
-          url: data.results[item].url
+          url: data.results[item].url,
         }
         );
       }

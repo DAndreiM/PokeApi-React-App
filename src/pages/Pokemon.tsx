@@ -4,28 +4,34 @@ import { useEffect, useState } from "react";
 import { itemsSliceAction, loadItems } from "../store/itemsSlice";
 import Button from "../ui/Button";
 import { useAppDispatch, useAppSelector } from "../store/index";
+import { useGetPokemonSpeciesInfoQuery } from "../services/pokemon";
+
+const refetchInterval = 5000; //5000ms , 5 s
 
 const Pokemon = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [Loading, setLoading] = useState<boolean>(false);
+  const {data, error, isLoading} = useGetPokemonSpeciesInfoQuery('bulbasaur', {
+    pollingInterval: refetchInterval
+  });
   const dispatch = useAppDispatch();
   const pokemonItem = useAppSelector((item) => item.itemsSlice.items);
   const errorState = useAppSelector((item) => item.itemsSlice.errorState);
   const offset = pokemonItem.length;
-
+  console.log(data);
+  
   useEffect(() => {
     if (offset === 0) {
-      setIsLoading(true);
+      setLoading(true);
       dispatch(
         loadItems("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10")
       );
-      setIsLoading(false);
+      setLoading(false);
     }
   }, [dispatch, offset]);
 
   const loadMorePokemonsHandler = async () => {
-    if (isLoading) return;
-    setIsLoading(true);
+    if (Loading) return;
+    setLoading(true);
     try {
       const response = await fetch(
         `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=10`
@@ -48,22 +54,22 @@ const Pokemon = () => {
       dispatch(itemsSliceAction.setErrorState(error.message));
       console.log(error);
     }
-    setIsLoading(false);
+    setLoading(false);
   };
 
   return (
     <>
-      {offset === 0 && isLoading && !errorState ? (
+      {offset === 0 && Loading && !errorState ? (
         <p className={classes.loadingContent}>Loading content...</p>
       ) : (
         <PokemonList pokemons={pokemonItem} />
       )}
-      {isLoading && offset > 0 && (
+      {Loading && offset > 0 && (
         <p className={classes.loadingContent}>Loading more pokemons...</p>
       )}
       {errorState && <p className={classes.loadingContent}>{errorState}</p>}
-      <Button disabled={isLoading} onClick={loadMorePokemonsHandler}>
-        {isLoading ? "Loading..." : "Load More"}
+      <Button disabled={Loading} onClick={loadMorePokemonsHandler}>
+        {Loading ? "Loading..." : "Load More"}
       </Button>
     </>
   );
