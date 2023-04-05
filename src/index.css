@@ -28,7 +28,7 @@ header{
 
 main{
   grid-area: main;
-  margin-bottom: 6rem;
+  margin:6rem 0;
 }
 
 footer{

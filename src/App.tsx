@@ -3,6 +3,7 @@ import Root from "./components/root";
 import Calculator from "./pages/Calculator";
 import ErrorPage from "./pages/ErrorPage";
 import PokemonInfo from "./pages/PokemonInfo";
+import PokemonExtraInfo from "./pages/PokemonExtraInfo";
 import { lazy, Suspense } from "react";
 import { loader as PokemonDetailLoader } from "./pages/PokemonInfo";
 
@@ -33,8 +34,18 @@ const Routes = createBrowserRouter([
           },
           {
             path: ":pokemonID",
-            element: <PokemonInfo />,
             loader: PokemonDetailLoader,
+            id:'pokemonRoute',
+            children: [
+              {
+                index: true,
+                element: <PokemonInfo />,
+              },
+              {
+                path: "extra",
+                element:<PokemonExtraInfo />,
+              }
+            ]
           },
         ],
       },

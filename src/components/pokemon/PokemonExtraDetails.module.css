@@ -1,0 +1,63 @@
+.common{
+    border:2px solid white;
+    background-color: white;
+}
+
+.legendary{
+    border:2px solid purple;
+    background-color: purple;
+}
+
+.mythical{
+    border: 2px solid gold;
+    background-color: gold;
+}
+
+.extraDetailContainer{
+    border-radius: 20px;
+    margin:0 auto;
+    margin-top: 5rem;
+    position: relative;
+    background-color: rgb(5, 24, 33);
+}
+
+.pokemonTitle{
+    color:yellow;
+}
+
+.rarityTitle{
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.rarityTitle h1{
+    margin:0.1rem;
+    font-size: 1.4rem;
+}
+
+.extraDetails{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 3rem;
+    border-radius: 20px;
+}
+
+.characteristics{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    color:white;
+}
+
+@media(max-width: 35rem){
+    .characteristics{
+        flex-direction: column;
+    }
+}

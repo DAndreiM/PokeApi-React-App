@@ -1,15 +1,19 @@
-import { useLoaderData, Await, json, defer } from "react-router";
+import { Await, json, defer, useRouteLoaderData } from "react-router";
 import { Suspense } from "react";
 import PokemonDetails from "../components/pokemon/PokemonDetails";
-import { LoaderFunction } from 'react-router-dom';
+import { LoaderFunction } from "react-router-dom";
 import pokemonModel from "../models/pokemonModel";
 
-export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<ReturnType<TLoaderFn>> extends Response | infer D
-	? D
-	: never;
+export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<
+  ReturnType<TLoaderFn>
+> extends Response | infer D
+  ? D
+  : never;
 
 const PokemonInfo = () => {
-  const { data } = useLoaderData() as LoaderData<typeof loader>;
+  const { data } = useRouteLoaderData("pokemonRoute") as LoaderData<
+    typeof loader
+  >;
   return (
     <Suspense
       fallback={
@@ -36,16 +40,17 @@ async function loadData(pokemonIdentifier: string) {
   }
 
   const data = await response.json();
-  console.log(data);
   let moves: JSX.Element[] = [];
 
   for (let i = 0; i < 3; i++) {
-    moves.push(<li key={Math.random()*100}>{data.moves[i].move.name.toUpperCase()}</li>);
+    moves.push(
+      <li key={Math.random() * 100}>{data.moves[i].move.name.toUpperCase()}</li>
+    );
   }
 
   const pokemonData: pokemonModel = {
     id: data.id,
-    url: 'none',
+    url: "none",
     name: data.name.toUpperCase(),
     height: data.height,
     weight: data.weight,
@@ -56,7 +61,13 @@ async function loadData(pokemonIdentifier: string) {
   return pokemonData;
 }
 
-export async function loader({ request, params }: {request: any, params: any}) {
+export async function loader({
+  request,
+  params,
+}: {
+  request: any;
+  params: any;
+}) {
   const pokemonIdentifier = params.pokemonID;
 
   return defer({

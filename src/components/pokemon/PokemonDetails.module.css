@@ -8,11 +8,12 @@
     border-radius: 20px;
     margin:1rem auto;
     padding:0 0.5rem;
-    background-color: #051821;
+    background-color: rgb(5, 24, 33);
     max-width: 500px;
     min-width: 262px;
     min-height:22rem;
-    max-height: 36rem;
+    overflow: hidden;
+    position: relative;
 }
 
 .title{
@@ -72,6 +73,33 @@
     color:yellow;
     font-weight: bold;
     font-size: 1.2rem;
+}
+
+.backBtn {
+    margin:1rem 0;
+}
+
+.expand{
+    position: absolute;
+    bottom:0;
+    right:0;
+    text-align: center;
+    transform: rotateZ(-45deg) translate(1.2rem, 1.8rem);
+    background-color: rgba(5, 48, 35, 1);
+    font-size: 0.8rem;
+    color:black;
+    height:3rem;
+    width:7rem;
+    padding:0.4rem 0;
+    color:white;
+    font-weight: bold;
+    transition: all 0.2s ease-out;
+}
+
+.expand:hover{
+    background-color: yellow;
+    border: none;
+    color:black;
 }
 
 @media(max-width:35rem){

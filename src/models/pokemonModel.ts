@@ -25,12 +25,12 @@ export type pokemonDetailModel = {
     forms_switchable: boolean,
     base_happiness: number,
     capture_rate: number,
-    color: object,
-    egg_groups: [],
-    evolves_from_species: string,
-    generation: object,
+    color: {name: string, url:string},
+    egg_groups: any[],
+    evolves_from_species: {name: string, url: string},
+    generation: {name: string, url: string},
     hatch_counter: number,
-    shape: object,
+    shape: {name: string, url: string},
 }
 
 export default pokemonModel;

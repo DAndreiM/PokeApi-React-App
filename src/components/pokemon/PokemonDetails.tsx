@@ -24,7 +24,8 @@ const PokemonDetails: React.FC<{pokemon: pokemonModel}> = ({ pokemon }) => {
           <p className={classes.value}>{pokemon.weight}</p>
         </div>
       </div>
-      <Link to="/pokemon">Back</Link>
+      <Link className={classes.backBtn} to="/pokemon">Back</Link>
+      <Link className={classes.expand} to='extra'>EXPAND</Link>
     </div>
   );
 };

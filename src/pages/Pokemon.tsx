@@ -4,20 +4,14 @@ import { useEffect, useState } from "react";
 import { itemsSliceAction, loadItems } from "../store/itemsSlice";
 import Button from "../ui/Button";
 import { useAppDispatch, useAppSelector } from "../store/index";
-import { useGetPokemonSpeciesInfoQuery } from "../services/pokemon";
-
-const refetchInterval = 500990; //5000ms , 5 s
 
 const Pokemon = () => {
   const [Loading, setLoading] = useState<boolean>(false);
-  const {data, error, isLoading} = useGetPokemonSpeciesInfoQuery('bulbasaur', {
-    pollingInterval: refetchInterval
-  });
+
   const dispatch = useAppDispatch();
   const pokemonItem = useAppSelector((item) => item.itemsSlice.items);
   const errorState = useAppSelector((item) => item.itemsSlice.errorState);
   const offset = pokemonItem.length;
-  console.log(data);
 
   useEffect(() => {
     if (offset === 0) {
