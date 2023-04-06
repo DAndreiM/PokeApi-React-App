@@ -4,10 +4,12 @@ import Calculator from "./pages/Calculator";
 import ErrorPage from "./pages/ErrorPage";
 import PokemonInfo from "./pages/PokemonInfo";
 import PokemonExtraInfo from "./pages/PokemonExtraInfo";
-import { lazy, Suspense } from "react";
+import BerryDetailPage from "./pages/BerryDetailPage";
+import { Children, lazy, Suspense } from "react";
 import { loader as PokemonDetailLoader } from "./pages/PokemonInfo";
 
 const Pokemon = lazy(() => import("./pages/Pokemon"));
+const Berries = lazy(() => import("./pages/Berries"));
 
 const Routes = createBrowserRouter([
   {
@@ -35,7 +37,7 @@ const Routes = createBrowserRouter([
           {
             path: ":pokemonID",
             loader: PokemonDetailLoader,
-            id:'pokemonRoute',
+            id: "pokemonRoute",
             children: [
               {
                 index: true,
@@ -43,9 +45,49 @@ const Routes = createBrowserRouter([
               },
               {
                 path: "extra",
-                element:<PokemonExtraInfo />,
-              }
-            ]
+                element: <PokemonExtraInfo />,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: "/berries",
+        children: [
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<p style={{ textAlign: "center" }}></p>}>
+                <Berries />
+              </Suspense>
+            ),
+          },
+          {
+            path: ":berryID",
+            children: [
+              {
+                index: true,
+                element: <BerryDetailPage />,
+              },
+              {
+                path: "flavor",
+                children: [
+                  {
+                    path: ":berryName",
+                    element: <BerryDetailPage />,
+                  },
+                ],
+              },
+              {
+                path: "firmness",
+                children: [
+                  {
+                    path: ":berryName",
+                    element: <BerryDetailPage />,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },

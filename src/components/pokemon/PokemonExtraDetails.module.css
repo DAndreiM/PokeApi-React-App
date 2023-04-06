@@ -19,6 +19,8 @@
     margin-top: 5rem;
     position: relative;
     background-color: rgb(5, 24, 33);
+    max-width: 40rem;
+    min-width: 17.5rem;
 }
 
 .pokemonTitle{
@@ -34,9 +36,10 @@
     border-bottom-left-radius: 20px;
 }
 
-.rarityTitle h1{
+.rarityTitle p{
     margin:0.1rem;
     font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .extraDetails{
@@ -56,8 +59,49 @@
     color:white;
 }
 
+.baseCharacteristics{
+    display:flex;
+    gap:1rem;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap:1rem;
+    width:95%;
+    margin:1rem 0;
+    text-align: center;
+}
+
+.baseCharacteristics div p:first-of-type{
+    color:white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin:0;
+}
+
+.baseCharacteristics div p:last-of-type{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: darkgreen;
+}
+
+.pageLink:hover{
+    border: none;
+}
+
+.linkToEvolve{
+    color:green;
+}
+
+.linkToEvolve:hover{
+    border: none;
+}
+
 @media(max-width: 35rem){
     .characteristics{
+        flex-direction: column;
+    }
+
+    .baseCharacteristics{
         flex-direction: column;
     }
 }

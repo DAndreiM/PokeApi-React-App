@@ -1,0 +1,73 @@
+.berryDetail{
+    border:3px solid green;
+    border-radius: 20px;
+    position: relative;
+    background-color: #051821;
+    max-width: 550px;
+    margin:auto;
+}
+
+.berryDetail a{
+    color:green;
+}
+
+.berryDetail a:hover{
+    border: none;
+    color:white;
+}
+
+.berryTitle{
+    position:absolute;
+    top:0;
+    left:50%;
+    transform: translate(-50%);
+    margin:0;
+    color:white;
+    width: 50%;
+    text-align: center;
+    background-color: green;
+    border-radius:20px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.berryChara{
+    margin-top: 4rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.berryCharaCategory{
+    display:flex;
+    text-align: center;
+    align-items: center;
+    gap:1rem;
+    flex-wrap: wrap;
+}
+
+.berryCharaCategory div p:first-of-type{
+    color:white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.berryCharaCategory div p:last-of-type{
+    color:green;
+    font-weight: bold;
+    margin:0;
+}
+
+.flavour{
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    color:white;
+}
+
+@media(max-width:35rem){
+    .berryTitle{
+        font-size: 1rem;
+    }
+}

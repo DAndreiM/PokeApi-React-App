@@ -1,4 +1,4 @@
-import {  PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import pokemonModel from "../models/pokemonModel";
 import { AppDispatch } from "./index";
 
@@ -6,7 +6,7 @@ type initState = {
   items: pokemonModel[];
   errorState: string;
   sortBy: string;
-}
+};
 
 const initialState: initState = {
   items: [],
@@ -21,7 +21,7 @@ const itemsSlice = createSlice({
     replaceItems(state, action: PayloadAction<pokemonModel[]>) {
       state.items = [...action.payload];
     },
-    addItem(state, action:PayloadAction<pokemonModel>) {
+    addItem(state, action: PayloadAction<pokemonModel>) {
       state.items.push(action.payload);
     },
     sortItem(state) {
@@ -52,17 +52,16 @@ export function loadItems(url: string) {
     async function load() {
       const response = await fetch(url);
       if (!response.ok) throw new Error("There was an error loading data...");
-
       const data = await response.json();
-      const pokemons = [];
+      const pokemons: { id: number; name: string; url: string }[] = [];
+      console.log(data);
 
       for (const item in data.results) {
         pokemons.push({
           id: +item + 1,
           name: data.results[item].name,
           url: data.results[item].url,
-        }
-        );
+        });
       }
       dispatch(itemsSlice.actions.replaceItems(pokemons));
     }

@@ -13,18 +13,18 @@ const PokemonExtraDetails = () => {
       pollingInterval: refetchInterval,
     }
   );
+  console.log(data?.egg_groups);
   const rarityClass = data?.is_mythical
     ? classes.mythical
     : data?.is_legendary
     ? classes.legendary
     : classes.common;
-  const rarityTitle = data?.is_mythical ? (
-    <h1>MYTHICAL</h1>
-  ) : data?.is_legendary ? (
-    <h1>LEGENDARY</h1>
-  ) : (
-    <h1>COMMON</h1>
-  );
+
+  const rarityTitle = data?.is_mythical
+    ? "MYTHICAL"
+    : data?.is_legendary
+    ? "LEGENDARY"
+    : "COMMON";
 
   return (
     <>
@@ -34,48 +34,77 @@ const PokemonExtraDetails = () => {
         </p>
       )}
 
-      {isLoading && (
+      {isLoading && !error && (
         <p style={{ textAlign: "center" }}>Loading info, please be patient</p>
       )}
 
       {!isLoading && !error && (
         <div className={`${rarityClass} ${classes.extraDetailContainer} `}>
           <div className={`${rarityClass} ${classes.rarityTitle}`}>
-            {rarityTitle}
+            <p>{rarityTitle}</p>
           </div>
           <div className={classes.extraDetails}>
             <h1 className={classes.pokemonTitle}>{data?.name.toUpperCase()}</h1>
             <div className={classes.characteristics}>
-              <p>
-                Rarity:
-                {data?.is_mythical
-                  ? "MYTHICAL"
-                  : data?.is_legendary
-                  ? "LEGENDARY"
-                  : "COMMON"}
-              </p>
-              <p>Generation: {data?.generation.name.toUpperCase()}</p>
-              <p>Status: {data?.is_baby ? "Baby" : "Adult"}</p>
-              <p>Shape: {data?.shape.name.toUpperCase()}</p>
-              <p>Can switch form: {data?.forms_switchable ? "YES" : "NO"}</p>
-              <p>
-                Evolves from species:
-                {data?.evolves_from_species ? (
-                  <Link to={`/pokemon/${data?.evolves_from_species.name}`}>
-                    {data?.evolves_from_species.name.toUpperCase()}
-                  </Link>
-                ) : (
-                  "Unspecified"
-                )}
-              </p>
-              <p>Base Happiness: {data?.base_happiness}</p>
-              <p>Capture Rate: {data?.capture_rate}</p>
-              <p>
-                Egg Groups:
-                {data?.egg_groups.map((item) => `${item.name.toUpperCase()} `)}
-              </p>
+              <div className={classes.baseCharacteristics}>
+                <div>
+                  <p>Rarity</p>
+                  <p>{rarityTitle}</p>
+                </div>
+                <div>
+                  <p>Generation</p>
+                  <p>{data?.generation.name.toUpperCase()}</p>
+                </div>
+                <div>
+                  <p>Status</p>
+                  <p>{data?.is_baby ? "Baby" : "Adult"}</p>
+                </div>
+                <div>
+                  <p>Shape</p>
+                  <p>{data?.shape.name.toUpperCase()}</p>
+                </div>
+              </div>
+              <div className={classes.baseCharacteristics}>
+                <div>
+                  <p>Can switch form</p>
+                  <p> {data?.forms_switchable ? "YES" : "NO"}</p>
+                </div>
+                <div>
+                  <p>Evolves from</p>
+                  <p>
+                    {data?.evolves_from_species ? (
+                      <Link
+                        className={classes.linkToEvolve}
+                        to={`/pokemon/${data?.evolves_from_species.name}`}
+                      >
+                        {data?.evolves_from_species.name.toUpperCase()}
+                      </Link>
+                    ) : (
+                      "Unspecified"
+                    )}
+                  </p>
+                </div>
+                <div>
+                  <p>Base Happiness</p>
+                  <p>{data?.base_happiness}</p>
+                </div>
+                <div>
+                  <p>Capture Rate</p>
+                  <p>{data?.capture_rate}</p>
+                </div>
+                <div>
+                  <p>Egg Groups</p>
+                  <p>
+                    {data?.egg_groups.map(
+                      (item) => `${item.name.toUpperCase()} `
+                    )}
+                  </p>
+                </div>
+              </div>
             </div>
-            <Link to={".."}>BACK</Link>
+            <Link className={classes.pageLink} to={".."}>
+              BACK
+            </Link>
           </div>
         </div>
       )}
