@@ -31,7 +31,7 @@ const BerryDetail = () => {
                 <p>
                   <Link
                     to={`firmness/${data?.firmness.name}`}
-                  >{`${data?.firmness.name.toUpperCase()} `}</Link>
+                  >{`>${data?.firmness.name.toUpperCase()}< `}</Link>
                 </p>
               </div>
               <div>
@@ -75,8 +75,8 @@ const BerryDetail = () => {
                     key={item.flavor.name}
                     to={`flavor/${item.flavor.name}`}
                   >
-                    {item.flavor.name.toUpperCase()}
-                    {", "}
+                    {`>${item.flavor.name.toUpperCase()}<`}
+                    {" | "}
                   </Link>
                 ))}
               </p>
