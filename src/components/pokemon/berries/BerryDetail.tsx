@@ -31,7 +31,7 @@ const BerryDetail = () => {
                 <p>
                   <Link
                     to={`firmness/${data?.firmness.name}`}
-                  >{`${data?.firmness.name} `}</Link>
+                  >{`${data?.firmness.name.toUpperCase()} `}</Link>
                 </p>
               </div>
               <div>
@@ -50,7 +50,7 @@ const BerryDetail = () => {
               </div>
               <div>
                 <p>Natural gift type</p>
-                <p>{data?.natural_gift_type.name}</p>
+                <p>{data?.natural_gift_type.name.toUpperCase()}</p>
               </div>
             </div>
             <div className={classes.berryCharaCategory}>
@@ -75,12 +75,15 @@ const BerryDetail = () => {
                     key={item.flavor.name}
                     to={`flavor/${item.flavor.name}`}
                   >
-                    {item.flavor.name}{" "}
+                    {item.flavor.name.toUpperCase()}
+                    {", "}
                   </Link>
                 ))}
               </p>
             </div>
-            <Link to={"../.."}>Back</Link>
+            <Link className={classes.backLink} to={".."}>
+              Back
+            </Link>
           </div>
         </div>
       )}

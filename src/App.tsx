@@ -1,15 +1,17 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/root";
-import Calculator from "./pages/Calculator";
-import ErrorPage from "./pages/ErrorPage";
-import PokemonInfo from "./pages/PokemonInfo";
-import PokemonExtraInfo from "./pages/PokemonExtraInfo";
-import BerryDetailPage from "./pages/BerryDetailPage";
-import { Children, lazy, Suspense } from "react";
-import { loader as PokemonDetailLoader } from "./pages/PokemonInfo";
+import Calculator from "./pages/calculator/Calculator";
+import ErrorPage from "./pages/error/ErrorPage";
+import PokemonInfo from "./pages/pokemon/PokemonInfo";
+import PokemonExtraInfo from "./pages/pokemon/PokemonExtraInfo";
+import BerryDetailPage from "./pages/berries/BerryDetailPage";
+import BerryFirmnessDetailsPage from "./pages/berries/BerryFirmnessDetailsPage";
+import BerryFlavorDetailsPage from "./pages/berries/BerryFlavorDetailsPage";
+import { lazy, Suspense } from "react";
+import { loader as PokemonDetailLoader } from "./pages/pokemon/PokemonInfo";
 
-const Pokemon = lazy(() => import("./pages/Pokemon"));
-const Berries = lazy(() => import("./pages/Berries"));
+const Pokemon = lazy(() => import("./pages/pokemon/Pokemon"));
+const Berries = lazy(() => import("./pages/berries/Berries"));
 
 const Routes = createBrowserRouter([
   {
@@ -74,7 +76,7 @@ const Routes = createBrowserRouter([
                 children: [
                   {
                     path: ":berryName",
-                    element: <BerryDetailPage />,
+                    element: <BerryFlavorDetailsPage />,
                   },
                 ],
               },
@@ -83,7 +85,7 @@ const Routes = createBrowserRouter([
                 children: [
                   {
                     path: ":berryName",
-                    element: <BerryDetailPage />,
+                    element: <BerryFirmnessDetailsPage />,
                   },
                 ],
               },

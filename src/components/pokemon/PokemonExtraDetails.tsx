@@ -96,7 +96,7 @@ const PokemonExtraDetails = () => {
                   <p>Egg Groups</p>
                   <p>
                     {data?.egg_groups.map(
-                      (item) => `${item.name.toUpperCase()} `
+                      (item) => `${item.name.toUpperCase()}, `
                     )}
                   </p>
                 </div>

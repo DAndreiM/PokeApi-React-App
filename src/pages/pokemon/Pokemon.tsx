@@ -1,9 +1,9 @@
 import classes from "./Pokemon.module.css";
-import PokemonList from "../components/pokemon/PokemonList";
+import PokemonList from "../../components/pokemon/PokemonList";
 import { useEffect, useState } from "react";
-import { itemsSliceAction, loadItems } from "../store/itemsSlice";
-import Button from "../ui/Button";
-import { useAppDispatch, useAppSelector } from "../store/index";
+import { itemsSliceAction, loadItems } from "../../store/itemsSlice";
+import Button from "../../ui/Button";
+import { useAppDispatch, useAppSelector } from "../../store/index";
 
 const Pokemon = () => {
   const [Loading, setLoading] = useState<boolean>(false);

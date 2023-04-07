@@ -1,0 +1,83 @@
+.berryFlavorDetailContainer{
+    border:3px solid black;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(5, 24, 33);
+    margin: auto;
+}
+
+.berryFlavorDetailContainer div{
+    margin-top: 3rem;
+    text-align: center;
+    color:white;
+}
+
+
+.expendature{
+    font-weight: bold;
+    border-bottom: 2px solid green;
+    padding:0.5rem;
+    width: 90%;
+    margin:1rem auto;
+}
+
+.berryFlavorDetailContainer h1{
+    color:white;
+    margin:0;
+    position: absolute;
+    top:0;
+    text-align: center;
+    width:50%;
+    background-color: black;
+    margin: auto;
+    padding:0.2rem;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.berryFlavorDetailContainer ul{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.berryFlavorDetailContainer ul p{
+    margin:0.3rem;
+}
+
+.berryFlavorDetailContainer ul li{
+    text-align: center;
+    border: 1px solid black;
+    width:7rem;
+    background-color: green;
+    border-radius: 40px;
+    padding:0.2rem;
+    cursor: pointer;
+}
+
+.berryFlavorDetailContainer ul li:hover{
+    transform: scale(1.1); 
+}
+
+.berryFlavorDetailContainer a{
+    color:white;
+}
+
+.berryFlavorItemDetail{
+    color: black;
+    font-weight: bold;
+}
+
+@media(max-width:35rem){
+    .berryFlavorDetailContainer h1{
+        font-size: 1rem;
+    }
+}

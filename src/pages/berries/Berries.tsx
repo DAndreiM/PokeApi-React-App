@@ -1,8 +1,8 @@
-import { useAppDispatch, useAppSelector } from "../store";
-import { berriesSliceActions, loadBerries } from "../store/berriesSlice";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { berriesSliceActions, loadBerries } from "../../store/berriesSlice";
 import { useEffect, useState } from "react";
-import Button from "../ui/Button";
-import BerriesList from "../components/pokemon/berries/BerriesList";
+import Button from "../../ui/Button";
+import BerriesList from "../../components/pokemon/berries/BerriesList";
 
 const Berries = () => {
   const dispatch = useAppDispatch();

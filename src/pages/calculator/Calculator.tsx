@@ -1,5 +1,5 @@
 import classes from "./Calculator.module.css";
-import CalculatorBody from "../components/calculator/CalculatorBody";
+import CalculatorBody from "../../components/calculator/CalculatorBody";
 
 const Calculator = () => {
   return (

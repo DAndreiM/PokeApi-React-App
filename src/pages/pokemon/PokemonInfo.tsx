@@ -1,8 +1,8 @@
 import { Await, json, defer, useRouteLoaderData } from "react-router";
 import { Suspense } from "react";
-import PokemonDetails from "../components/pokemon/PokemonDetails";
+import PokemonDetails from "../../components/pokemon/PokemonDetails";
 import { LoaderFunction } from "react-router-dom";
-import pokemonModel from "../models/pokemonModel";
+import pokemonModel from "../../models/pokemonModel";
 
 export type LoaderData<TLoaderFn extends LoaderFunction> = Awaited<
   ReturnType<TLoaderFn>

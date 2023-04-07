@@ -1,4 +1,4 @@
-import BerryDetail from "../components/pokemon/berries/BerryDetail";
+import BerryDetail from "../../components/pokemon/berries/BerryDetail";
 
 const BerryDetailPage = () => {
   return <BerryDetail />;

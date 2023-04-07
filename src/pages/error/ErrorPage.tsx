@@ -1,5 +1,5 @@
 import classes from "./ErrorPage.module.css";
-import Navigation from "../components/navigation/Navigation";
+import Navigation from "../../components/navigation/Navigation";
 
 const ErrorPage = () => {
   return (
