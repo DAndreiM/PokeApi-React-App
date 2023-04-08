@@ -7,13 +7,6 @@ type pokemonModel = {
     weight?: number;
     abilities?: JSX.Element[];
     experience?: string;
-
-    /*constructor(id: number, name: string, url: string, image: string){
-        this.id = id;
-        this.name = name;
-        this.url = url;
-        this.image = image;
-    }*/
 }
 
 export type pokemonDetailModel = {

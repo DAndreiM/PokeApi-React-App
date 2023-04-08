@@ -6,7 +6,6 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     background-color: rgb(5, 24, 33);
     margin: auto;
 }
@@ -44,7 +43,6 @@
     display:flex;
     flex-wrap: wrap;
     gap: 1rem;
-    align-items: center;
     justify-content: center;
     margin: auto;
 }
@@ -67,13 +65,18 @@
     transform: scale(1.1); 
 }
 
-.berryFlavorDetailContainer a{
-    color:white;
-}
-
-.berryFlavorItemDetail{
+.berryFlavorItemPotency{
     color: black;
     font-weight: bold;
+}
+
+.backLink{
+ margin: 1rem;   
+}
+
+.backLink:hover{
+    border: none;
+    color: darkgreen;
 }
 
 @media(max-width:35rem){

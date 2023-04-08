@@ -8,11 +8,12 @@
     text-align: center;
 }
 
-.berryDetail a{
-    color:green;
+.pageLink{
+    color:yellow;
+    font-size: 1rem;
 }
 
-.berryDetail a:hover{
+.pageLink:hover{
     border: none;
     color:white;
 }
@@ -34,19 +35,15 @@
 
 .berryChara{
     margin-top: 4rem;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .berryCharaCategory{
     display:flex;
-    text-align: center;
-    align-items: center;
     justify-content: center;
     gap:1rem;
     flex-wrap: wrap;
+    width: 90%;
+    margin:0 auto;
 }
 
 .berryCharaCategory div p:first-of-type{
@@ -67,12 +64,21 @@
     color:white;
 }
 
+.flavour p:last-of-type{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:0.5rem;
+    width:80%;
+    margin:1rem auto;
+}
+
 .backLink{
-    color:white !important;
+    color:white;
 }
 
 .backLink:hover{
-    color:teal !important;
+    color:green;
 }
 
 @media(max-width:35rem){
